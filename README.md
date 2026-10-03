@@ -39,7 +39,7 @@ Expected summary: `{"accepted": 2, "rejected": 2}`. Inspect `results/processed.j
 
 ## Optional AWS deployment
 
-`template.yaml` supplies an AWS SAM template. With AWS CLI, SAM CLI, and your own AWS sandbox configured, run `sam build`, `sam validate --lint`, then `sam deploy --guided`. Upload the CSV under `incoming/` in the stack's input bucket. Check the output bucket and CloudWatch logs. This creates billable AWS resources. No cloud deployment has been performed as part of the local verification.
+`template.yaml` supplies an AWS SAM template, checked with cfn-lint. Choose a unique `BucketPrefix` if deploying more than one stack in an account and region. With AWS CLI, SAM CLI, and your own AWS sandbox configured, run `sam build`, `sam validate --lint`, then `sam deploy --guided`. Upload the CSV under `incoming/` in the stack's input bucket. Check the output bucket and CloudWatch logs. This creates billable AWS resources. No cloud deployment has been performed as part of the local verification.
 
 ## Scope and next steps
 

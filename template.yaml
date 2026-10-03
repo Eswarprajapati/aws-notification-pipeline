@@ -1,10 +1,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Portfolio CSV notification processor
+Parameters:
+  BucketPrefix:
+    Type: String
+    Default: eswarnotifications
+    MinLength: 3
+    MaxLength: 20
+    AllowedPattern: '^[a-z][a-z0-9]{2,19}$'
 Resources:
   InputBucket:
     Type: AWS::S3::Bucket
     Properties:
+      BucketName: !Sub '${BucketPrefix}-${AWS::AccountId}-${AWS::Region}-raw'
       VersioningConfiguration: {Status: Enabled}
       BucketEncryption:
         ServerSideEncryptionConfiguration:
@@ -38,7 +46,7 @@ Resources:
           OUTPUT_BUCKET: !Ref OutputBucket
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref InputBucket
+            BucketName: !Sub '${BucketPrefix}-${AWS::AccountId}-${AWS::Region}-raw'
         - S3WritePolicy:
             BucketName: !Ref OutputBucket
       Events:

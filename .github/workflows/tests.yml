@@ -13,3 +13,5 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
       - run: python demo.py
+      - run: python -m pip install cfn-lint==1.57.1
+      - run: cfn-lint -t template.yaml

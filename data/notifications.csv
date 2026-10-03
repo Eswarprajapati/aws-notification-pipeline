@@ -1,0 +1,5 @@
+notification_id,recipient,channel,message,created_at
+n001,customer1@example.invalid,email,Your statement is ready,2026-01-01T10:00:00Z
+n002,synthetic-device-2,push,Usage threshold reached,2026-01-01T10:05:00Z
+n001,customer1@example.invalid,email,Duplicate delivery request,2026-01-01T10:00:00Z
+n003,customer3@example.invalid,fax,Unsupported channel,2026-01-01T10:10:00Z
